@@ -132,7 +132,7 @@ jupyter notebook Histogram_Manipulation_Medical_Image_Enhancement.ipynb
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green)
