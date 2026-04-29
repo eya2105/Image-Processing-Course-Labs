@@ -1,4 +1,4 @@
-#  TP4 — Segmentation d'Images
+#  Image segmentation
 
 **Image segmentation pipeline** applied to four categories of images using classical computer vision techniques — implemented entirely from scratch in Python/OpenCV as part of a university lab.
 
