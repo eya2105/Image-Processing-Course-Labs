@@ -4,37 +4,21 @@
 INSAT — Institut National des Sciences Appliquées et de Technologie, Tunis  
 *Taught by Mme Wided Souid*
 
-> **Authors :** Khlifi Eya · Bargougui Nada · Bennaser Samia
-
 ---
 
-## 📋 Overview
+## Overview
 
 This lab is divided into two complementary parts:
 
 **Part 1 — Histogram equalization with OpenCV** (`vallee.png`)  
 Step-by-step guided exploration of histogram manipulation: loading, visualising, equalising, and comparing global vs adaptive techniques on a low-contrast landscape image.
 
-**Part 2 — Scientific article reproduction** (`retina.png`)  
-Full Python reimplementation of four histogram-based enhancement algorithms from the peer-reviewed article by Salem et al. (2019), evaluated with three quantitative metrics on a medical retina image.
+**Part 2 — Scientific article reproduction**   
+Full Python reimplementation of four histogram-based enhancement algorithms from the peer-reviewed article by Salem et al. (2019), evaluated with three quantitative metrics on a medical retina image
 
 ---
 
-## 📁 Files
-
-```
-TP2_Histogram_Enhancement/
-├── Histogram_Manipulation___Medical_Image_Enhancement.ipynb
-├── vallee.png          # Test image — low-contrast landscape (295×443)
-├── retina.png          # Medical retina image (1411×1411)
-├── Lab.pdf             # Official lab instructions (Mme Wided Souid)
-├── MedicalImageEnhancement.pdf   # Reference article — Salem et al. (2019)
-└── README.md
-```
-
----
-
-## 🧪 Part 1 — Histogram Equalization with OpenCV
+## Part 1 — Histogram Equalization with OpenCV
 
 Applied to `vallee.png`, whose pixel intensities are initially compressed between **119 and 200** — a classic low-contrast image.
 
@@ -53,13 +37,13 @@ Applied to `vallee.png`, whose pixel intensities are initially compressed betwee
 | `clipLimit` | Effect |
 |-------------|--------|
 | 1.0 | Minimal enhancement — image still dull |
-| **2.0** | ✅ Best balance — contrast improved, no artifacts |
+| **2.0** | Best balance — contrast improved, no artifacts |
 | 4.0 | Strong contrast, risk of halos at edges |
 | 8.0 | Over-amplification — visible noise and artifacts |
 
 ---
 
-## 🔬 Part 2 — Medical Image Enhancement (Article Reproduction)
+## Part 2 — Medical Image Enhancement (Article Reproduction)
 
 Based on: **Salem N., Malik H., Shams A.** (2019). *Medical image enhancement based on histogram algorithms.* Procedia Computer Science, 163, 300–311. [DOI: 10.1016/j.procs.2019.12.112](https://doi.org/10.1016/j.procs.2019.12.112)
 
@@ -84,7 +68,7 @@ SD   = standard deviation of the enhanced image intensities
 
 ---
 
-## 📊 Results
+## Results
 
 ### Quantitative comparison on the retina image
 
@@ -100,10 +84,10 @@ SD   = standard deviation of the enhanced image intensities
 
 | Metric | Best method | Interpretation |
 |--------|-------------|----------------|
-| MSE ↓ | 🥇 **QDHE** (21.43) | Least distortion introduced vs original |
-| PSNR ↑ | 🥇 **QDHE** (34.82 dB) | Best signal preservation |
+| MSE ↓ | **QDHE** (21.43) | Least distortion introduced vs original |
+| PSNR ↑ | **QDHE** (34.82 dB) | Best signal preservation |
 | SD ↑ | **CHE** (67.75) | Maximum contrast spread |
-| **Best for retina overall** | ✅ **CLAHE** | Confirms article conclusion — see below |
+| **Best for retina overall** | **CLAHE** | Confirms article conclusion — see below |
 
 ### Why CLAHE wins for retina despite lower PSNR than QDHE
 
@@ -113,7 +97,7 @@ This result is **consistent with the original article** (Table 2: retina PSNR �
 
 ---
 
-## ⚙️ Setup & Usage
+## Setup & Usage
 
 ### Requirements
 
@@ -124,15 +108,14 @@ pip install numpy pandas matplotlib opencv-python scikit-image
 ### Run
 
 ```bash
-jupyter notebook Histogram_Manipulation___Medical_Image_Enhancement.ipynb
+jupyter notebook Histogram_Manipulation_Medical_Image_Enhancement.ipynb
 ```
 
-> Make sure `vallee.png` and `retina.png` are in the same directory as the notebook.  
-> If `retina.png` is not present, the notebook automatically falls back to `skimage.data.retina()`.
+> Make sure images are in the same directory as the notebook.  
 
 ---
 
-## 🔑 Key Takeaways
+## Key Takeaways
 
 1. **Global HE is fast but aggressive** — it maps all intensities uniformly and can destroy local detail, producing the worst MSE and PSNR on medical images.
 2. **CHE marginally improves HE** — the CDF normalisation reduces distortion slightly but both share the same global-processing limitation.
@@ -143,7 +126,7 @@ jupyter notebook Histogram_Manipulation___Medical_Image_Enhancement.ipynb
 
 ---
 
-## 📚 Reference
+## Reference
 
 > Salem, N., Malik, H., & Shams, A. (2019). Medical image enhancement based on histogram algorithms. *Procedia Computer Science*, 163, 300–311. https://doi.org/10.1016/j.procs.2019.12.112
 
